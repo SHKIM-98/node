@@ -1,0 +1,26 @@
+doctype html
+html 
+    head   
+        meta(charset = 'utf-8')
+    body
+        h1 
+            a(href = '/topic') My Blog
+        ul
+            each topic in topics
+                li
+                    a(href = '/topic/' + topic.id)= topic.title
+            article
+                if topic
+                    h2= topic.title
+                    =topic.description
+                    div='by' + topic.author
+                else
+                    h2 Welcome
+            ul
+                li
+                    a(href = '/topic/new') new
+                if topic
+                    li                    
+                        a(href = '/topic/' + topic.id + '/edit') edit
+                    li
+                        a(href = '/topic/' + topic.id + '/delete') delete
